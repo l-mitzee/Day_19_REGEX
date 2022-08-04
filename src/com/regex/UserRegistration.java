@@ -11,9 +11,8 @@ public class UserRegistration {
 	static String emailRE = "[a-zA-z0-9][a-zA-Z0-9+_.]*@[a-zA-Z0-9]+([.][a-zA-z]+)+";
 //	static String emailRE ="^[a-zA-Z0-9.*]+@[a-zA-Z]+.[a-zA-Z]{2,4}\\.[a-z]{2,}$";
 //	static String emailRE = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
-//	static String passwordRE = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!#@%^&*(){}])[a-zA-Z0-9+-_!@#$%^&*(){}'.,]{8,}$";
 	static String passwordRE = "^(?=.*[0-9])+(?=.*[a-z])+(?=.*[A-Z])+(?=.*[@#$%^&-+=()])+(?=\\S+$).{8}$";
-	
+	static String mobileNum = "[0?91]*[6-9]+[0-9]+{10,12}";
 	
 	public static boolean firstName(String firstName) {
 		Pattern p = Pattern.compile(firstNameRE);
@@ -39,6 +38,11 @@ public class UserRegistration {
 		return password.matches(passwordRE);
 		}
 	
+	public static boolean mobileNum(String number) {
+		
+		return number.matches(mobileNum);
+		}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 	    System.out.println("Enter your first name: ");
@@ -49,11 +53,14 @@ public class UserRegistration {
 	    String email = sc.next();
 	    System.out.println("Enter your password: ");
 	    String password = sc.next();
+	    System.out.println("Enter your mobile number: ");
+	    String num = sc.next();
 	    UserRegistration obj = new UserRegistration();
 	    System.out.println(obj.firstName(first));
 	    System.out.println(obj.lastName(last));
 	    System.out.println(obj.email(email));
 	    System.out.println(obj.password(password));
+	    System.out.println(obj.mobileNum(num));
 	   
 //		System.out.println("First name: " +firstName("Lisa"));
 //		System.out.println("Last name: " +lastName("Das"));
